@@ -16,7 +16,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dark: true,
+      dark: false,
       lang: localStorage.getItem("lang"),
       chainId: 0,
       activeDropdown: null,
