@@ -8,8 +8,8 @@
 /* General */
 
 :root {
-  --pink: #eddfd6;
-  --black: #222222;
+  --pink: #fff;
+  --black: #030303;
   --primary-color: var(--pink);
   --secondary-color: var(--black);
   margin-left: 15%;
