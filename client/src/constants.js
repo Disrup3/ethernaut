@@ -130,7 +130,7 @@ export const GOOGLE_ANALYTICS_ID = "UA-85043059-4";
 export const ADDRESSES = {
   [NETWORKS.LOCAL.name]: undefined,
   [NETWORKS.MUMBAI.name]: "0x09902A56d04a9446601a0d451E07459dC5aF0820",
-  [NETWORKS.GOERLI.name]: "0x09902A56d04a9446601a0d451E07459dC5aF0820",
+  [NETWORKS.GOERLI.name]: "0x067C8A0aD90d8eBa4e819C0797448C58a5705cE2",
   [NETWORKS.SEPOLIA.name]: "0x09902A56d04a9446601a0d451E07459dC5aF0820",
   [NETWORKS.OPTIMISM_GOERLI.name]: "0x09902A56d04a9446601a0d451E07459dC5aF0820",
   [NETWORKS.ARBITRUM_GOERLI.name]: "0x09902A56d04a9446601a0d451E07459dC5aF0820",
@@ -176,7 +176,7 @@ export const SHOW_VERSION = true;
 // export const ACTIVE_NETWORK = NETWORKS.MUMBAI
 // export const ACTIVE_NETWORK = NETWORKS.OPTIMISM_GOERLI
 // export const ACTIVE_NETWORK = NETWORKS.ARBITRUM_GOERLI
-export const ACTIVE_NETWORK = NETWORKS.LOCAL;
+ export const ACTIVE_NETWORK = NETWORKS.LOCAL;
 
 let id_to_network = {};
 Object.keys(NETWORKS)
@@ -186,7 +186,6 @@ Object.keys(NETWORKS)
   .forEach(
     (network) => (id_to_network[NETWORKS[network].id] = NETWORKS[network].name)
   );
-
 export const ID_TO_NETWORK = id_to_network;
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
