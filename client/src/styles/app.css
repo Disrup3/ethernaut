@@ -4,14 +4,18 @@
 @import "./hubspot.css";
 @import "./stats.css";
 @import url(https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,700,400italic,700italic);
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
 /* General */
 
 :root {
   --pink: #fff;
   --black: #030303;
+  --green: #33e459;
+  --color-violet: #E813C6;
+  --color-purple: #580297;
   --primary-color: var(--pink);
   --secondary-color: var(--black);
+  --third-color: var(--green);
   margin-left: 15%;
   margin-right: 15%;
   display: flex;
@@ -58,7 +62,10 @@ body {
   padding: 0%;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  font-size: 14px;
+  font-family: 'Montserrat', sans-serif!important;
+  font-size: 16px;
+  line-height: 1.4em;
+
 }
 
 ul {
@@ -92,7 +99,7 @@ ul {
 }
 
 .footer {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .main,
@@ -127,13 +134,16 @@ h2 {
 }
 
 button {
-  background-color: var(--secondary-color);
+  background-color: var(--color-purple);
   border: none;
   border-radius: 5px;
   padding: 4px 9px;
-  color: var(--primary-color);
-  font-weight: bold;
+  color: var(--pink);
+  /* font-weight: bold; */
   cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px!important;
+  padding: 8px 30px!important;
 }
 
 .button-actions {
@@ -329,7 +339,8 @@ nav li {
 }
 
 .level-tile {
-  border-radius: 6px;
+  /* border-radius: 6px; */
+  border: solid 1px #310552;
 }
 
 .source-code {
@@ -371,7 +382,6 @@ nav li {
   width: 78px;
   visibility: visible;
   opacity: 100;
-  border-radius: 6px;
 }
 
 .Description {
@@ -410,8 +420,8 @@ footer {
   padding: 10px 10px 0px 10px;
   bottom: 0;
   height: 25px;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -426,8 +436,8 @@ footer {
   padding: 10px 10px 0px 10px;
   bottom: 0;
   height: 30px;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -522,8 +532,8 @@ footer {
 }
 
 .multi-dropdown__icon{
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: var(--color-purple);
   padding: 4px 9px;
   border-radius: 5px;
   cursor: pointer;
@@ -604,8 +614,8 @@ footer {
 }
 
 .dropdown-pill{
-  background-color:  var(--secondary-color);
-  color:  var(--primary-color);
+  /* background-color:  var(--secondary-color);
+  color:  var(--primary-color); */
   border-radius: 3px;
   padding: 5px 10px;
   cursor: pointer;
@@ -644,15 +654,15 @@ footer {
 }
 
 .filled-icon{
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background-color: var(--color-purple);
+  color: var(--secondary-color);
   width: fit-content;
   padding: 4px 8px;
   border-radius: 5px;
 }
 
 .filled-icon svg{
-  fill: var(--primary-color);
+  fill: var(--secondary-color);
   display: inline-block;
   height: 16px;
 }
@@ -754,4 +764,39 @@ footer {
   .the-ethernaut {
     width: 60%;
   }
+}
+
+/* custom disrup3  */
+a {
+  color: var(--third-color)!important;
+}
+.logoD {
+  max-width: 50%;
+}
+.w33 {
+  width: 33%!important;
+}
+.btnm {
+  width: 54px!important;
+}
+.ptop {
+  padding-top: 5%!important;
+}
+
+code {
+  font-size: 0.875em;
+  color: var(--color-violet);
+  word-wrap: break-word;
+}
+.hljs {
+  background-color: #121212!important;
+  border-radius: 5px!important;
+}
+.pb10 {
+  padding-bottom: 15px;
+}
+.alert-warning {
+ background-color: #D9F40B;
+ color: #111;
+ border: solid #D9F40B;
 }

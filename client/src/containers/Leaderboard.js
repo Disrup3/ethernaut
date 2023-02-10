@@ -118,7 +118,7 @@ function Leaderboard() {
         <main className="boxes">
             <div className='leaderboard-body'>
                     <div className="leaderboard-heading">
-                        <div className="leaderboard-title">Leaderboard</div>
+                        <div className="leaderboard-title pb10">Tabla de clasificación</div>
                         <Search
                             searchKeyword={searchKeyword}
                             onKeywordChange={updateSearchResult}

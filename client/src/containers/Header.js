@@ -16,7 +16,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dark: false,
+      dark: true,
       lang: localStorage.getItem("lang"),
       chainId: 0,
       activeDropdown: null,
@@ -71,25 +71,26 @@ class Header extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    
     if (prevProps && this.props.location !== prevProps.location) {
-      let elements = document.getElementsByClassName("level-tile");
-      if (elements.length !== 0) {
-        for (let i = 0; i < elements.length; i++) {
-          let element = elements[i];
-          if (element && element.style)
-            element.style.filter = this.state.dark ? svgFilter() : null;
-        }
-      }
+      // let elements = document.getElementsByClassName("level-tile");
+      // if (elements.length !== 0) {
+      //   for (let i = 0; i < elements.length; i++) {
+      //     let element = elements[i];
+      //     if (element && element.style)
+      //       element.style.filter = this.state.dark ? svgFilter() : null;
+      //   }
+      // }
 
       // Change The Ethernaut logo
-      var theEthernaut = document.getElementById("the-ethernaut");
-      if (theEthernaut && theEthernaut.style)
-        theEthernaut.style.filter = this.state.dark ? svgFilter() : null;
+      // var theEthernaut = document.getElementById("the-ethernaut");
+      // if (theEthernaut && theEthernaut.style)
+      //   theEthernaut.style.filter = this.state.dark ? svgFilter() : null;
 
       // Change Arrow
-      let isArrowInPage = document.getElementById("arrow");
-      if (isArrowInPage && isArrowInPage.style)
-        isArrowInPage.style.filter = this.state.dark ? svgFilter() : null;
+      // let isArrowInPage = document.getElementById("arrow");
+      // if (isArrowInPage && isArrowInPage.style)
+      //   isArrowInPage.style.filter = this.state.dark ? svgFilter() : null;
 
       // Change all custom images
       var imageElements = document.getElementsByClassName("custom-img");
@@ -179,8 +180,11 @@ class Header extends React.Component {
 
       // Change OpenZeppelin logo
       var theLogo = document.getElementById("logo");
+      var theLogoD = document.getElementById("logoD");
       if (theLogo && theLogo.style)
         theLogo.style.filter = !this.state.dark ? svgFilter() : null;
+        theLogoD.style.filter = !this.state.dark ? svgFilter() : null;
+        
 
       // // Change OpenZeppelin logo
       // var theChristmashat = document.getElementById("christmas-hat")
@@ -241,161 +245,173 @@ class Header extends React.Component {
     const ddOpen = Boolean(this.state.multiDDOpen);
     return (
       <div onClick={() => this.closeDropdown()}>
-        <div className="lines">
+        {/* <div className="lines">
           <center>
             <hr className="top" />
           </center>
           <center>
             <hr className="top" />
           </center>
+        </div> */}
+        <div className="ptop">
+
         </div>
         <center>
           <header>
-            <ul className="header-ul">
+            <ul className="header-ul w33">
               <li className="nav-links">
                 <a
                   className="buttons hiring-button"
-                  href="https://grnh.se/dd38880f3us"
+                  href={constants.PATH_ROOT}
                 >
-                  <button>{strings.hiring}</button>
+                   <img
+                     className="logo logoD"
+                     id="logoD"
+                     src="../../imgs/disrup3.svg"
+                     alt="logo"
+              />
+                  {/* <button>{strings.hiring}</button> */}
                 </a>
               </li>
             </ul>
-            <a className="logo-container" href="https://openzeppelin.com">
+            <a className="logo-container w33" href="#">
               {/* <img
                 id="christmas-hat"
                 className="christmas-hat"
                 src="../../imgs/christmas-hat.png"
                 alt="christmas-hat"
               /> */}
-              <img
+              {/* <img
                 id="logo"
                 className="logo"
                 src="../../imgs/oz-logo.svg"
                 alt="logo"
-              />
+              /> */}
             </a>
 
             {/* ---- Multi Dropdown Container */}
-            <div
-              onClick={(e) => e.stopPropagation()}
-              className="multi-dropdown"
-            >
-              {/* dropdown icon */}
+            <div className="w33">
               <div
-                onClick={() => this.toggleDropdownState()}
-                className="multi-dropdown__icon"
+                onClick={(e) => e.stopPropagation()}
+                className="multi-dropdown btnm"
               >
-                <i className="fas fa-bars"></i>
-              </div>
-              {/* dropdown icon */}
-              {/* dropdown content */}
-              <ul
-                className={`multi-dropdown__dropdown ${
-                  ddOpen ? "--open" : "--closed"
-                }`}
-              >
-                <div className="dropdown-pill --left">
-                  <div>
-                    <Link
-                      to={
-                        window.location.pathname !== constants.PATH_ROOT
-                          ? constants.PATH_ROOT
-                          : constants.PATH_HELP
-                      }
-                    >
-                      <div className="filled-icon">
-                        {window.location.pathname !== constants.PATH_ROOT ? (
-                          <>
-                            <i className="fas fa-home"></i>
-                          </>
-                        ) : (
-                          <>
-                            <i className="fas fa-question"></i>
-                          </>
-                        )}
-                      </div>
-                    </Link>
-                    {window.location.pathname === constants.PATH_ROOT &&
-                      !!this.props.web3 && (
-                        <div className="filled-icon">
-                          <Link to={constants.PATH_LEADERBOARD}>
-                            <LeaderIcon />
-                          </Link>
-                        </div>
-                      )}
-                    <input
-                      onClick={() => {
-                        this.toggleDarkMode();
-                      }}
-                      className="toggle --small"
-                      type="checkbox"
-                    />
-                  </div>
-                </div>
-
+                {/* dropdown icon */}
                 <div
-                  className={`single-dropdown --${
-                    this.props.web3 && "--hidden"
+                  onClick={() => this.toggleDropdownState()}
+                  className="multi-dropdown__icon"
+                >
+                  <i className="fas fa-bars"></i>
+                </div>
+                {/* dropdown icon */}
+                {/* dropdown content */}
+                <ul
+                  className={`multi-dropdown__dropdown ${
+                    ddOpen ? "--open" : "--closed"
                   }`}
                 >
-                  <p onClick={() => this.setActiveTab(2)}>
-                    <i className="fas fa-globe-americas"></i>
-                    <span>{strings.Networks}</span>
-                  </p>
-                  <div className={this.getDDClassName(2)}>
-                    {Object.values(constants.NETWORKS_INGAME).map((network) => {
-                      if (network && network.name !== "local") {
-                        if (Number(network.id) === this.state.chainId)
-                          return false; // filter out current network
-                        return (
-                          <div
-                            onClick={(e) => {
-                              e.preventDefault();
-                              this.changeNetwork(network);
-                            }}
-                            className="dropdown-pill"
-                          >
-                            <a id={network.name} key={network.name} href="/">
-                              {network.name}
-                            </a>
+                  <div className="dropdown-pill --left">
+                    <div>
+                      <Link
+                        to={
+                          window.location.pathname !== constants.PATH_ROOT
+                            ? constants.PATH_ROOT
+                            : constants.PATH_HELP
+                        }
+                      >
+                        <div className="filled-icon">
+                          {window.location.pathname !== constants.PATH_ROOT ? (
+                            <>
+                              <i className="fas fa-home"></i>
+                            </>
+                          ) : (
+                            <>
+                              <i className="fas fa-question"></i>
+                            </>
+                          )}
+                        </div>
+                      </Link>
+                      {window.location.pathname === constants.PATH_ROOT &&
+                        !!this.props.web3 && (
+                          <div className="filled-icon">
+                            <Link to={constants.PATH_LEADERBOARD}>
+                              <LeaderIcon />
+                            </Link>
                           </div>
-                        );
-                      }
-                      return null;
-                    })}
-                  </div>
-                </div>
-
-                <div className="single-dropdown">
-                  <p onClick={() => this.setActiveTab(1)}>
-                    <i className="fas fa-0.5x fa-network-wired"></i>
-                    <span>{strings.Languages}</span>
-                  </p>
-                  <div className={this.getDDClassName(1)}>
-                    {Object.keys(LANGUAGES_MAP).map((languageString) => (
-                      <div
-                        onClick={(e) => {
-                          this.changeLanguage(e, languageString);
+                        )}
+                      {/* <input
+                        onClick={() => {
+                          this.toggleDarkMode();
                         }}
-                        className="dropdown-pill"
-                      >
-                        <a href="/">{LANGUAGES_MAP[languageString]}</a>
-                      </div>
-                    ))}
-                    <div className="dropdown-pill">
-                      <a
-                        className="contr"
-                        href="https://github.com/openzeppelin/ethernaut#modify-or-add-new-languages"
-                      >
-                        {strings.contributeTranslation}
-                      </a>
+                        className="toggle --small"
+                        type="checkbox"
+                      /> */}
                     </div>
                   </div>
-                </div>
-              </ul>
-              {/* dropdown content */}
+
+                  {/* <div
+                    className={`single-dropdown --${
+                      this.props.web3 && "--hidden"
+                    }`}
+                  >
+                    <p onClick={() => this.setActiveTab(2)}>
+                      <i className="fas fa-globe-americas"></i>
+                      <span>{strings.Networks}</span>
+                    </p>
+                    <div className={this.getDDClassName(2)}>
+                      {Object.values(constants.NETWORKS_INGAME).map((network) => {
+                        if (network && network.name !== "local") {
+                          if (Number(network.id) === this.state.chainId)
+                            return false; // filter out current network
+                          return (
+                            <div
+                              onClick={(e) => {
+                                e.preventDefault();
+                                this.changeNetwork(network);
+                              }}
+                              className="dropdown-pill"
+                            >
+                              <a id={network.name} key={network.name} href="/">
+                                {network.name}
+                              </a>
+                            </div>
+                          );
+                        }
+                        return null;
+                      })}
+                    </div>
+                  </div> */}
+
+                  <div className="single-dropdown">
+                    <p onClick={() => this.setActiveTab(1)}>
+                      <i className="fas fa-0.5x fa-network-wired"></i>
+                      <span>{strings.Languages}</span>
+                    </p>
+                    <div className={this.getDDClassName(1)}>
+                      {Object.keys(LANGUAGES_MAP).map((languageString) => (
+                        <div
+                          onClick={(e) => {
+                            this.changeLanguage(e, languageString);
+                          }}
+                          className="dropdown-pill"
+                        >
+                          <a href="/">{LANGUAGES_MAP[languageString]}</a>
+                        </div>
+                      ))}
+                      {/* <div className="dropdown-pill">
+                        <a
+                          className="contr"
+                          href="https://github.com/openzeppelin/ethernaut#modify-or-add-new-languages"
+                        >
+                          {strings.contributeTranslation}
+                        </a>
+                      </div> */}
+                    </div>
+                  </div>
+                </ul>
+                {/* dropdown content */}
+              </div>
             </div>
+            
             {/* ---- Multi Dropdown Container */}
             {/* ----------- */}
             {/* <ul className="header-ul">
@@ -576,7 +592,7 @@ class Header extends React.Component {
           />
           {!this.props.web3 && (
             <div
-              style={{ backgroundColor: "#eddfd6", border: "none" }}
+              // style={{ backgroundColor: "#eddfd6", border: "none" }}
               className="alert alert-warning"
             >
               <strong>{strings.warning}! </strong>
