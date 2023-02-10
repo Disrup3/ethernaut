@@ -156,6 +156,14 @@ class App extends React.Component {
               <hr />
             </center>
             {parse(strings.info)}
+            <center>
+            <img
+                id="logo"
+                className="logo ptop"
+                src="../../imgs/oz-logo.svg"
+                alt="logo"
+              />
+            </center>
           </section>
         </main>
         {/* Footer */}
