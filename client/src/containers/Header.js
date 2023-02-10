@@ -260,18 +260,15 @@ class Header extends React.Component {
           <header>
             <ul className="header-ul w33">
               <li className="nav-links">
-                <a
-                  className="buttons hiring-button"
-                  href={constants.PATH_ROOT}
-                >
-                   <img
+              <Link className="buttons hiring-button" to={ constants.PATH_ROOT }  >
+              <img
                      className="logo logoD"
                      id="logoD"
                      src="../../imgs/disrup3.svg"
                      alt="logo"
               />
-                  {/* <button>{strings.hiring}</button> */}
-                </a>
+              </Link>
+               
               </li>
             </ul>
             <a className="logo-container w33" href="#">
