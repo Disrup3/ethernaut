@@ -1,5 +1,5 @@
 import React from "react";
-import onClickOutside from 'react-onclickoutside'
+import onClickOutside from "react-onclickoutside";
 import { connect } from "react-redux";
 import { withRouter } from "../hoc/withRouter";
 import { Link } from "react-router-dom";
@@ -71,7 +71,6 @@ class Header extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    
     if (prevProps && this.props.location !== prevProps.location) {
       // let elements = document.getElementsByClassName("level-tile");
       // if (elements.length !== 0) {
@@ -183,8 +182,7 @@ class Header extends React.Component {
       var theLogoD = document.getElementById("logoD");
       if (theLogo && theLogo.style)
         theLogo.style.filter = !this.state.dark ? svgFilter() : null;
-        theLogoD.style.filter = !this.state.dark ? svgFilter() : null;
-        
+      theLogoD.style.filter = !this.state.dark ? svgFilter() : null;
 
       // // Change OpenZeppelin logo
       // var theChristmashat = document.getElementById("christmas-hat")
@@ -226,21 +224,13 @@ class Header extends React.Component {
 
   handleClickOutside = () => {
     this.closeDropdown();
-  }
+  };
 
   render() {
     let strings = loadTranslations(this.state.lang);
     const LANGUAGES_MAP = {
       en: strings.english,
       es: strings.spanish,
-      pt_br: strings.portuguese,
-      ja: strings.japanese,
-      zh_cn: strings.chinese_simplified,
-      zh_tw: strings.chinese_traditional,
-      fr: strings.french,
-      ru: strings.russian,
-      ar: strings.arabic,
-      tr: strings.turkish,
     };
     const ddOpen = Boolean(this.state.multiDDOpen);
     return (
@@ -253,38 +243,38 @@ class Header extends React.Component {
             <hr className="top" />
           </center>
         </div> */}
-        <div className="ptop">
-
-        </div>
+        <div className="ptop"></div>
         <center>
           <header>
             <ul className="header-ul w33">
               <li className="nav-links">
-              <Link className="buttons hiring-button" to={ constants.PATH_ROOT }  >
-              <img
-                     className="logo logoD"
-                     id="logoD"
-                     src="../../imgs/disrup3.svg"
-                     alt="logo"
-              />
-              </Link>
-               
+                <Link
+                  className="buttons hiring-button"
+                  to={constants.PATH_ROOT}
+                >
+                  <img
+                    className="logo logoD"
+                    id="logoD"
+                    src="../../imgs/disrup3.svg"
+                    alt="logo"
+                  />
+                </Link>
               </li>
             </ul>
-            <a className="logo-container w33" href="#">
-              {/* <img
+            {/* <a className="logo-container w33" href="#">
+              <img
                 id="christmas-hat"
                 className="christmas-hat"
                 src="../../imgs/christmas-hat.png"
                 alt="christmas-hat"
-              /> */}
-              {/* <img
+              />
+              <img
                 id="logo"
                 className="logo"
                 src="../../imgs/oz-logo.svg"
                 alt="logo"
-              /> */}
-            </a>
+              />
+            </a> */}
 
             {/* ---- Multi Dropdown Container */}
             <div className="w33">
@@ -390,6 +380,7 @@ class Header extends React.Component {
                             this.changeLanguage(e, languageString);
                           }}
                           className="dropdown-pill"
+                          key={languageString}
                         >
                           <a href="/">{LANGUAGES_MAP[languageString]}</a>
                         </div>
@@ -408,7 +399,7 @@ class Header extends React.Component {
                 {/* dropdown content */}
               </div>
             </div>
-            
+
             {/* ---- Multi Dropdown Container */}
             {/* ----------- */}
             {/* <ul className="header-ul">
@@ -618,4 +609,6 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(onClickOutside(Header)));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(onClickOutside(Header))
+);

@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from "../hoc/withRouter";
 import { randGoodIcon } from "../utils/^^";
-import { deployAdminContracts } from '../utils/deploycontract';
+import { deployAdminContracts } from "../utils/deploycontract";
 
 class App extends React.Component {
   constructor() {
@@ -31,7 +31,7 @@ class App extends React.Component {
     let target = this.props.levels[0].deployedAddress;
     for (let i = 0; i < this.props.levels.length; i++) {
       const level = this.props.levels[i];
-      if (!level.deployedAddress) { 
+      if (!level.deployedAddress) {
         return this.props.navigate(`${constants.PATH_LEVEL_ROOT}${i}`);
       }
       const completed = this.props.completedLevels[level.deployedAddress];
@@ -54,37 +54,47 @@ class App extends React.Component {
 
     // change the network to goreli network
     async function switchToGoerli() {
-      let elements = document.querySelectorAll('.progress-bar-wrapper');
-      const deployWindow = document.querySelectorAll('.deploy-window-bg');
+      let elements = document.querySelectorAll(".progress-bar-wrapper");
+      const deployWindow = document.querySelectorAll(".deploy-window-bg");
       try {
         await window.ethereum.request({
-          method: 'wallet_switchEthereumChain',
-          params: [{ chainId: `0x${Number(constants.NETWORKS.GOERLI.id).toString(16)}` }],//if on wrong network giving option to switch to sepolia network.
+          method: "wallet_switchEthereumChain",
+          params: [
+            {
+              chainId: `0x${Number(constants.NETWORKS.GOERLI.id).toString(16)}`,
+            },
+          ], //if on wrong network giving option to switch to sepolia network.
         });
-        deployWindow[0].style.display = 'none';
+        deployWindow[0].style.display = "none";
       } catch (switchError) {
         // This error code indicates that the chain has not been added to MetaMask.
         if (switchError.code === 4902) {
           try {
             await window.ethereum.request({
-              method: 'wallet_addEthereumChain',
+              method: "wallet_addEthereumChain",
               params: [
                 {
-                  chainId: [{ chainId: `0x${Number(constants.NETWORKS.GOERLI.id).toString(16)}` }]
+                  chainId: [
+                    {
+                      chainId: `0x${Number(
+                        constants.NETWORKS.GOERLI.id
+                      ).toString(16)}`,
+                    },
+                  ],
                 },
               ],
             });
-            deployWindow[0].style.display = 'none';
+            deployWindow[0].style.display = "none";
           } catch (addError) {
             if (addError.code === 4001) {
               //User has rejected changing the request
-              elements[0].style.display = 'none';
+              elements[0].style.display = "none";
             }
-            console.error("Can't add nor switch to the selected network")
+            console.error("Can't add nor switch to the selected network");
           }
         } else if (switchError.code === 4001) {
           //User has rejected changing the request
-          if (elements[0]) elements[0].style.display = 'none';
+          if (elements[0]) elements[0].style.display = "none";
         }
       }
     }
@@ -126,22 +136,16 @@ class App extends React.Component {
               <br />
               {strings.deployMessage}
               <ul>
-                {supportedNetworks.map((network, idx) =>
+                {supportedNetworks.map((network, idx) => (
                   <li key={idx}>{network}</li>
-                )}
+                ))}
               </ul>
               <p className="deploy-note">{strings.deployConfirmation}</p>
               <div className="choice-buttons">
-                <button
-                  className="buttons"
-                  onClick={deployAdminContracts}
-                >
+                <button className="buttons" onClick={deployAdminContracts}>
                   {strings.deployGame}
                 </button>
-                <button
-                  className="buttons"
-                  onClick={switchToGoerli}
-                >
+                <button className="buttons" onClick={switchToGoerli}>
                   {strings.switchToGoerli}
                 </button>
               </div>
@@ -157,12 +161,33 @@ class App extends React.Component {
             </center>
             {parse(strings.info)}
             <center>
-            <img
-                id="logo"
-                className="logo ptop"
-                src="../../imgs/oz-logo.svg"
-                alt="logo"
-              />
+              {/* Flex row inline style */}
+              <div className="dflex">
+                <a
+                  href="https://www.openzeppelin.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    id="logo"
+                    className="logo ptop"
+                    src="../../imgs/oz-logo.svg"
+                    alt="logo"
+                  />
+                </a>
+                <a
+                  href="https://www.rackslabs.com/en"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    id="logo"
+                    className="logo ptop filterwhite"
+                    src="../../imgs/RacksLabs-logo.webp"
+                    alt="logo"
+                  />
+                </a>
+              </div>
             </center>
           </section>
         </main>
