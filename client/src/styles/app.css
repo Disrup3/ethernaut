@@ -796,3 +796,15 @@ code {
   color: #111;
   border: solid #d9f40b;
 }
+.filterwhite {
+  filter: invert(100%);
+}
+.dflex {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin-top: 6em;
+  margin-bottom: 2em;
+  justify-content: center;
+  flex-wrap: wrap;
+}

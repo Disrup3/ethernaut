@@ -162,7 +162,7 @@ class App extends React.Component {
             {parse(strings.info)}
             <center>
               {/* Flex row inline style */}
-              <div>
+              <div className="dflex">
                 <a
                   href="https://www.openzeppelin.com/"
                   target="_blank"
@@ -182,8 +182,8 @@ class App extends React.Component {
                 >
                   <img
                     id="logo"
-                    className="logo ptop"
-                    src="../../imgs/RacksLabs-logo.png"
+                    className="logo ptop filterwhite"
+                    src="../../imgs/RacksLabs-logo.webp"
                     alt="logo"
                   />
                 </a>
