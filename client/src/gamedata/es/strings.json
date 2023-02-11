@@ -7,7 +7,7 @@
   "help": "Ayuda",
   "stats": "Estadísticas",
   "ethernautHelp": "Ayuda",
-  "footer": "Desarrollado con <span aria-hidden='true' class='fa fa-heart' style='color: red;'></span> y <span aria-hidden='true' class='fa fa-flash' style='color: yellow;'></span> por el equipo de <a href='https://openzeppelin.com'>OpenZeppelin</a>",
+  "footer": "Desarrollado con <span aria-hidden='true' class='fa fa-heart' style='color: red;'></span> y <span aria-hidden='true' class='fa fa-flash' style='color: yellow;'></span> por los equipo de <a href='https://openzeppelin.com' target='_blank'>OpenZeppelin</a> and <a href='https://www.rackslabs.com/' target='_blank'>RacksLabs</a>",
   "english": "English",
   "arabic": "عربي",
   "spanish": "Español",
