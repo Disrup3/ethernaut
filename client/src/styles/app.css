@@ -808,3 +808,6 @@ code {
   justify-content: center;
   flex-wrap: wrap;
 }
+.buttonranking   {
+  color: var(--color-purple)!important;
+}

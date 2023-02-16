@@ -31,11 +31,14 @@ function LeaderTile(props) {
                     {totalNumberOfLevelsCompleted}
                 </div>
                 <div className="leaderboard-score">{score.toFixed(2)}</div>
-                <div onClick={onAliasEdit} className='leaderboard-alias-edit'>
+                <div  className='leaderboard-alias-edit'>
+
+                </div>
+                {/* <div onClick={onAliasEdit} className='leaderboard-alias-edit'>
                     {
                         currentUser.toLowerCase() === player.toLowerCase() && <i className="leaderboard-edit-icon fa-solid fa-pen-to-square"></i>
                     }
-                </div>
+                </div> */}
             </div>
              
         </>

@@ -3,7 +3,7 @@ export function loadTranslations(language) {
     try { 
         translations = require(`../gamedata/${language}/strings.json`)
       } catch(e){
-        translations = require(`../gamedata/en/strings.json`)
+        translations = require(`../gamedata/es/strings.json`)
         if(!translations) throw new Error("Can't load translations")
     }
 
