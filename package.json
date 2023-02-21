@@ -25,6 +25,7 @@
     "test:contracts": "cd contracts && hardhat test",
     "leaderboard:oldCrawler": "node client/leaderboard/scripts/crawlers/crawlHistoricalData/index.cjs",
     "leaderboard:newCrawler": "node client/leaderboard/scripts/crawlers/crawlNewData/index.cjs",
-    "leaderboard:triggerNextCrawl": "node client/leaderboard/scripts/actuate/index.cjs"
+    "leaderboard:triggerNextCrawl": "node client/leaderboard/scripts/actuate/index.cjs",
+    "start:chii": "chii start -p 8080"
   }
 }

